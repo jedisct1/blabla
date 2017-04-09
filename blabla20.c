@@ -7,7 +7,7 @@
 #define crypto_stream_blabla20_ROUNDS 20
 
 #if defined(__x86_64__) || defined(__i386__)
-# undef  NATIVE_LITTLE_ENDIAN
+# undef NATIVE_LITTLE_ENDIAN
 # define NATIVE_LITTLE_ENDIAN
 #endif
 
@@ -55,7 +55,7 @@ static inline void store64_le(uint8_t dst[8], uint64_t w) {
 #endif
 }
 
-#define HYDRO_STREAM_BLABLA20_QUARTERROUND(a, b, c, d)                         \
+#define CRYPTO_STREAM_BLABLA20_QUARTERROUND(a, b, c, d)                        \
   a += b;                                                                      \
   d = ROTR64(d ^ a, 32);                                                       \
   c += d;                                                                      \
@@ -69,14 +69,14 @@ static void crypto_stream_blabla20_rounds(uint64_t st[16]) {
   int i;
 
   for (i = 0; i < crypto_stream_blabla20_ROUNDS; i += 2) {
-    HYDRO_STREAM_BLABLA20_QUARTERROUND(st[0], st[4], st[8], st[12]);
-    HYDRO_STREAM_BLABLA20_QUARTERROUND(st[1], st[5], st[9], st[13]);
-    HYDRO_STREAM_BLABLA20_QUARTERROUND(st[2], st[6], st[10], st[14]);
-    HYDRO_STREAM_BLABLA20_QUARTERROUND(st[3], st[7], st[11], st[15]);
-    HYDRO_STREAM_BLABLA20_QUARTERROUND(st[0], st[5], st[10], st[15]);
-    HYDRO_STREAM_BLABLA20_QUARTERROUND(st[1], st[6], st[11], st[12]);
-    HYDRO_STREAM_BLABLA20_QUARTERROUND(st[2], st[7], st[8], st[13]);
-    HYDRO_STREAM_BLABLA20_QUARTERROUND(st[3], st[4], st[9], st[14]);
+    CRYPTO_STREAM_BLABLA20_QUARTERROUND(st[0], st[4], st[8], st[12]);
+    CRYPTO_STREAM_BLABLA20_QUARTERROUND(st[1], st[5], st[9], st[13]);
+    CRYPTO_STREAM_BLABLA20_QUARTERROUND(st[2], st[6], st[10], st[14]);
+    CRYPTO_STREAM_BLABLA20_QUARTERROUND(st[3], st[7], st[11], st[15]);
+    CRYPTO_STREAM_BLABLA20_QUARTERROUND(st[0], st[5], st[10], st[15]);
+    CRYPTO_STREAM_BLABLA20_QUARTERROUND(st[1], st[6], st[11], st[12]);
+    CRYPTO_STREAM_BLABLA20_QUARTERROUND(st[2], st[7], st[8], st[13]);
+    CRYPTO_STREAM_BLABLA20_QUARTERROUND(st[3], st[4], st[9], st[14]);
   }
 }
 
