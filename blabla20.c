@@ -6,6 +6,11 @@
 
 #define crypto_stream_blabla20_ROUNDS 20
 
+#if defined(__x86_64__) || defined(__i386__)
+# undef  NATIVE_LITTLE_ENDIAN
+# define NATIVE_LITTLE_ENDIAN
+#endif
+
 #define ROTR64(x, b) (uint64_t)(((x) >> (b)) | ((x) << (64 - (b))))
 
 #define LOAD64_LE(SRC) load64_le(SRC)
