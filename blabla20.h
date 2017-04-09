@@ -5,10 +5,10 @@
 #include <stdint.h>
 
 #define crypto_stream_blabla20_BLOCKBYTES 128
-
 #define crypto_stream_blabla20_KEYBYTES 32
 #define crypto_stream_blabla20_NONCEBYTES 16
 
+#define crypto_stream_xblabla20_BLOCKBYTES 128
 #define crypto_stream_xblabla20_KEYBYTES 32
 #define crypto_stream_xblabla20_NONCEBYTES 24
 

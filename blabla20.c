@@ -173,10 +173,10 @@ crypto_stream_blabla20(uint8_t *c, size_t len,
 }
 
 void
-crypto_stream_blabla20_block(
-    uint8_t       block[crypto_stream_blabla20_BLOCKBYTES],
-    const uint8_t nonce[crypto_stream_blabla20_NONCEBYTES],
-    const uint8_t key[crypto_stream_blabla20_KEYBYTES])
+crypto_stream_xblabla20_block(
+    uint8_t       block[crypto_stream_xblabla20_BLOCKBYTES],
+    const uint8_t nonce[crypto_stream_xblabla20_NONCEBYTES],
+    const uint8_t key[crypto_stream_xblabla20_KEYBYTES])
 {
     uint64_t ks[16];
     uint64_t st[16];
